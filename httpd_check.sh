@@ -9,6 +9,4 @@ if [ "$status_var" == "1" ]; then
 elif [ "$status_var" == "0" ]; then 
        echo " apache2 is NOT installed on this system" 
        
-else 
-	echo " Not sure about apache2 . Please check it manually "
 fi 
