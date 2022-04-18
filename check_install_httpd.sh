@@ -14,12 +14,15 @@ elif [ "$status_var" == "0" ]; then
 fi
 #Check the port 80 , if not open , open it.
 
-export port_status=`lsof -i -P -n | grep LISTEN | grep 80 | wc -l`
+#export port_status=`lsof -i -P -n | grep LISTEN | grep 80 | wc -l`
+export port_status=`ufw status | grep 80 | awk '{print $2}' | head -1`
 
-if [ "$port_status" != "0" ]; then 
-	echo " port 80 is opened "
+if [ "$port_status" != "ALLOW" ]; then 
+	echo " port 80 is s already opened "
 else 
 	echo " port 80 is closed "
+	sudo ufw allow 80
+	#sudo ufw reload
 
 fi
 
