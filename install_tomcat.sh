@@ -9,3 +9,4 @@ tar -xvf apache-tomcat-10.0.20.tar.gz
 rm -rf apache-tomcat-10.0.20.tar.gz
 cd apache-tomcat-10.0.20/bin/
 ./catalina.sh start
+ps -aef | grep 'tomcat'
